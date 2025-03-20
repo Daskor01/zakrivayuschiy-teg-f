@@ -1,11 +1,10 @@
-<article class="card">
-          <h3 class="card__title"></h3>
-          <picture class="card__image"></picture>
-          <p class="card__text"></p>
-          <button class="card__like-button">
-              <svg class="card__icon-button">
-                <use href="./svg/heart-empty.svg#heart-empty">
-              </svg>
-            <span class="button__text">Like</span>
-          </button>
-        </article>
+Ссылка на github: https://github.com/Daskor01/zakrivayuschiy-teg-f
+
+
+#Закрывающий_Тег.
+
+Проект четвертого спринта на курсе "Фронтенд-разработчик" от Яндекс.Практикум.
+
+#Назначение: Учебный проект для отработки навыков в верстке с HTML и CSS.
+
+#Ссылки: [Яндекс.Практикум](https://practicum.yandex.ru/)
