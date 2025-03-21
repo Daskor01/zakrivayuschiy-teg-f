@@ -18,3 +18,9 @@
   font-style: normal;
   font-weight: 400;
 }
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: Inter, sans-serif;
+  }
+}

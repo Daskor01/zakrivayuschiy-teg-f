@@ -1,68 +1,78 @@
+/*Поддержка свойств*/
+
+@supports((text-stroke: 1px rgba(255, 255, 255, 0.5)) or (-webkit-text-stroke: 1px rgba(255, 255, 255, 0.5))) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  }
+}
+
 /*Стили для Body*/
 .page {
+  display: grid;
+  font-family: var(--font-family), sans-serif;
+  font-weight: var(--font-weight-main);
+  background: var(--page-background) fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-family), sans-serif;
-  font-weight: 400;
-  background: var(--page-background) fixed;
-  display: grid;
 }
 
 /*Переиспользуемые селекторы*/
 
 .button {
-  font-family: var(--accent-font), sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-block-size: 38px;
-  border: none;
-  background-color: inherit;
-  font-size: 14px;
-  border: var(--border);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border: var(--border);
   overflow: hidden;
+  font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  background-color: inherit;
   cursor: pointer;
+  max-block-size: 38px;
   max-inline-size: 130px;
 }
 
 .button__text {
   position: relative;
   z-index: 1;
-  mix-blend-mode: difference;
   color: #fff;
+  mix-blend-mode: difference;
 }
 
 /*Стили для Header и Main*/
 
 .header,
 .main {
-  max-width: 700px;
   margin-inline: auto;
+  inline-size: 100%;
+  max-inline-size: 700px;
 }
 
 .header {
-  block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   margin-block-start: 100px;
   border: var(--border);
   background-color: #fff;
+  block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
 }
 
 .header__title,
 .header__subtitle {
   font-family: var(--accent-font);
-  text-transform: uppercase;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .header__title {
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   padding-block-start: 130px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header__subtitle {
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   margin-block-start: 18px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
 .header__subtitle-lower {
@@ -78,17 +88,17 @@
 
 .card {
   display: grid;
-  border: var(--border);
   margin-block-end: 50px;
+  border: var(--border);
   background-color: #fff;
 }
 
 .card__title {
-  font-family: var(--font-family), sans-serif;
   margin-inline: 11px;
-  font-size: 18px;
-  font-weight: 700;
   margin-block: 5px;
+  font-family: var(--font-family), sans-serif;
+  font-weight: var(--font-weight-title);
+  font-size: 18px;
 }
 
 .card__image-container {
@@ -96,11 +106,11 @@
 }
 
 .card__image {
-  inline-size: 100%;
-  aspect-ratio: 1;
+  border-block: var(--border);
   object-fit: cover;
   object-position: center;
-  border-block: var(--border);
+  inline-size: 100%;
+  aspect-ratio: 1;
 }
 
 .card__image-filter-blur {
@@ -158,10 +168,10 @@
 }
 
 .card__icon-button {
-  padding-block-start: 2px;
-  padding-inline: 2px;
-  background-color: transparent;
   border: 2px solid transparent;
+  padding-inline: 2px;
+  padding-block-start: 2px;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -173,10 +183,10 @@
 }
 
 .icon-floppy {
-  height: var(--icon-floppy-size);
-  width: var(--icon-floppy-size);
-  margin-inline-end: 5px;
   z-index: 1;
+  width: var(--icon-floppy-size);
+  height: var(--icon-floppy-size);
+  margin-inline-end: 5px;
 }
 
 /*Стили для Dialog*/
@@ -187,9 +197,9 @@
 }
 
 .dialog {
-  max-inline-size: 357px;
-  font-family: var(--accent-font);
   padding: 29px;
+  font-family: var(--accent-font);
+  max-inline-size: 357px;
 }
 
 .dialog[open]::backdrop {
@@ -198,32 +208,26 @@
 
 .dialog[open] {
   display: grid;
+  max-block-size: 353px;
 }
 
 .dialog__button {
-  padding: 26px 18px;
-  min-inline-size: 293px;
-  justify-self: center;
-  grid-row: 2 / 3;
   grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-self: center;
+  margin-inline: auto;
+  padding: 26px 18px;
   background-color: #fff;
+  min-inline-size: 293px;
 }
 
 .dialog__title {
-  font-size: 14px;
   margin-block-end: 30px;
-  max-inline-size: 234px;
+  font-size: 14px;
   line-height: 150%;
+  max-inline-size: 234px;
 }
 
-/*Поддержка свойств*/
-
-@supports((text-stroke: 1px rgba(255, 255, 255, 0.5)) or (-webkit-text-stroke: 1px rgba(255, 255, 255, 0.5))) {
-  .card__label {
-    text-shadow: none;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-  }
-}
 
 /*Медиа-запросы*/
 
@@ -239,8 +243,8 @@
 
   .dialog__button {
     flex-direction: column;
-    max-block-size: 84px;
     padding: 10px;
+    max-block-size: 84px;
     min-inline-size: 306px;
     min-block-size: 84px;
   }
@@ -262,20 +266,20 @@
 }
 
 .button:focus-visible {
-  transition: box-shadow 0.3s ease;
   box-shadow: 2px 2px 0 var(--color-dark);
+  transition: box-shadow 0.3s ease;
 }
 
 .button::after {
     content: "";
-    inline-size: 100%;
-    block-size: 100%;
     position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0;
     background-color: var(--color-dark, #000);
     transition: transform 0.5s ease-in-out;
     transform: translateX(-100%);
+    inline-size: 100%;
+    block-size: 100%;
+    inset-inline-start: 0;
+    inset-block-start: 0;
 }
 
 .button:hover::after {
@@ -288,8 +292,8 @@
 }
 
 .card__icon-button:focus-visible {
-  transition: border 0.3s ease;
   border: var(--border);
+  transition: border 0.3s ease;
 }
 
 .contour {
@@ -333,8 +337,8 @@
 }
 
 .like-icon.is-liked .main-body {
-  transition: fill 0.3s linear 0.05s;
   fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
