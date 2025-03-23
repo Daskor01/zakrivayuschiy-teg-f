@@ -11,7 +11,8 @@
 .page {
   display: grid;
   font-family: var(--font-family), sans-serif;
-  font-weight: var(--font-weight-main);
+  font-variation-settings: var(--font-weight-main);
+  background-color: #cfcccc;
   background: var(--page-background) fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -24,15 +25,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
   border: var(--border);
   overflow: hidden;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   background-color: inherit;
   cursor: pointer;
   max-block-size: 38px;
   max-inline-size: 130px;
+  transition-duration: 0.3s;
 }
 
 .button__text {
@@ -40,6 +41,7 @@
   z-index: 1;
   color: #fff;
   mix-blend-mode: difference;
+  transition-duration: 0.3s;
 }
 
 /*Стили для Header и Main*/
@@ -55,28 +57,23 @@
   margin-block-start: 100px;
   border: var(--border);
   background-color: #fff;
-  block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+  padding-block: 130px;
 }
 
 .header__title,
 .header__subtitle {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   text-align: center;
   text-transform: uppercase;
 }
 
 .header__title {
-  padding-block-start: 130px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header__subtitle {
   margin-block-start: 18px;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-}
-
-.header__subtitle-lower {
-  text-transform: lowercase;
 }
 
 .main {
@@ -97,7 +94,7 @@
   margin-inline: 11px;
   margin-block: 5px;
   font-family: var(--font-family), sans-serif;
-  font-weight: var(--font-weight-title);
+  font-variation-settings: var(--font-weight-title);
   font-size: 18px;
 }
 
@@ -145,7 +142,7 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   text-shadow: var(--text-shadow);
 }
 
@@ -173,6 +170,7 @@
   padding-block-start: 2px;
   background-color: transparent;
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 /*Стили Дискеты*/
@@ -198,17 +196,17 @@
 
 .dialog {
   padding: 29px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   max-inline-size: 357px;
 }
 
-.dialog[open]::backdrop {
+.dialog::backdrop {
+  background-color: #000;
   opacity: 75%;
 }
 
 .dialog[open] {
   display: grid;
-  max-block-size: 353px;
 }
 
 .dialog__button {
@@ -216,18 +214,25 @@
   grid-row: 2 / 3;
   justify-self: center;
   margin-inline: auto;
-  padding: 26px 18px;
+  padding: 26px 15px;
   background-color: #fff;
   min-inline-size: 293px;
 }
 
-.dialog__title {
+.dialog__button-text {
+  text-transform: uppercase;
+}
+
+.dialog__text {
   margin-block-end: 30px;
   font-size: 14px;
   line-height: 150%;
   max-inline-size: 234px;
 }
 
+.main__button {
+  min-inline-size: 335px;
+}
 
 /*Медиа-запросы*/
 
@@ -253,10 +258,6 @@
   --icon-floppy-size: 28px;
   margin-block-end: 8px;
 }
-
-.dialog__icon-floppy {
-  --icon-floppy-size: 39px;
-}
 }
 
 /*Состояния интерактивных элементов*/
@@ -267,7 +268,7 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 var(--color-dark);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow ease;
 }
 
 .button::after {
@@ -292,8 +293,8 @@
 }
 
 .card__icon-button:focus-visible {
-  border: var(--border);
   transition: border 0.3s ease;
+  border: var(--border);
 }
 
 .contour {
@@ -301,6 +302,7 @@
 }
 
 .sparks {
+  transition-duration: 0.3s;
   opacity: 0;
 }
 
@@ -316,6 +318,7 @@
 
 .card__icon-button:hover .core,
 .card__icon-button:hover .main-body {
+  transition: 0.3s;
   fill: var(--icon-contour-color);
 }
 
@@ -333,6 +336,7 @@
 }
 
 .like-icon.is-liked .core {
+  transition-duration: 0.3s;
   fill: var(--animation-fill-color);
 }
 
@@ -347,6 +351,7 @@
 }
 
 .like-icon.is-liked .heart {
+  transform-origin: center center;
   animation: heart 0.3s 0.1s ease-in;
 }
 

@@ -12,9 +12,13 @@
   --text-shadow:
    1px 1px 1px rgba(255, 255, 255, 0.5),
    -1px -1px 1px rgba(255, 255, 255, 0.5);
-  --icon-floppy-size: 28px;
+  --icon-floppy-size: 21px;
   --icon-contour-color: #000;
   --animation-fill-color: red;
-  --font-weight-main: 400;
-  --font-weight-title: 700;
+  --font-weight-main: "wght" 400;
+  --font-weight-title: "wght" 700;
+}
+
+.dialog__icon-floppy {
+  --icon-floppy-size: 39px;
 }
