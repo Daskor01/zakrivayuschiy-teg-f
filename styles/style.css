@@ -18,6 +18,10 @@
   min-block-size: 100dvb;
 }
 
+.page:has(.dialog[open]) {
+  overflow: hidden;
+}
+
 /*Переиспользуемые селекторы*/
 
 .button {
@@ -140,8 +144,9 @@
 
 .card__label {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  mix-blend-mode: hard-light;
   font-family: var(--accent-font), fantasy;
   text-shadow: var(--text-shadow);
 }
@@ -166,17 +171,20 @@
 
 .card__icon-button {
   border: 2px solid transparent;
-  padding-inline: 2px;
-  padding-block-start: 2px;
   background-color: transparent;
   cursor: pointer;
-  transition-duration: 0.3s;
+  transition: border 0.3s ease;
+  max-block-size: 38px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Стили Дискеты*/
 
 .button .icon-floppy {
-  filter: brightness(0) invert(1);
+  color: var(--icon-color);
+  fill: var(--icon-color);
   mix-blend-mode: difference;
 }
 
@@ -190,12 +198,11 @@
 /*Стили для Dialog*/
 
 .dialog__icon-floppy {
-  --icon-floppy-size: 39px;
   margin-block-start: 10px;
 }
 
 .dialog {
-  padding: 29px;
+  padding: 20px 29px;
   font-family: var(--accent-font), fantasy;
   max-inline-size: 357px;
 }
@@ -238,24 +245,31 @@
 
 @media (width <= 376px) {
 
-  .header__title {
-    padding-block-start: 120px;
+  .card__label {
+    inset-inline-end: 9px;
   }
 
-  .card__label {
-    right: 9px;
+  .dialog {
+    max-inline-size: 340px;
+  }
+
+  .dialog .button {
+    min-inline-size: 257px;
+    min-block-size: 38px;
   }
 
   .dialog__button {
     flex-direction: column;
     padding: 10px;
-    max-block-size: 84px;
+    min-block-size: 80px;
     min-inline-size: 306px;
-    min-block-size: 84px;
+  }
+
+  .dialog .icon-floppy {
+    margin-inline-end: 12px;
   }
 
   .icon-floppy {
-  --icon-floppy-size: 28px;
   margin-block-end: 8px;
 }
 }
@@ -313,7 +327,7 @@
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0s;
 }
 
 .card__icon-button:hover .core,
@@ -351,11 +365,10 @@
 }
 
 .like-icon.is-liked .heart {
-  transform-origin: center center;
-  animation: heart 0.3s 0.1s ease-in;
+  transform-origin: center;
+  animation: heart 0.3s ease-in 0.1s;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in;
+  animation: sparks 0.3s ease-in 0.3s;
 }
-
