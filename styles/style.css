@@ -1,9 +1,9 @@
 /*Поддержка свойств*/
 
-@supports((text-stroke: 1px rgba(255, 255, 255, 0.5)) or (-webkit-text-stroke: 1px rgba(255, 255, 255, 0.5))) {
+@supports((text-stroke: 1px var(--icon-color)) or (-webkit-text-stroke: 1px var(--icon-color))) {
   .card__label {
     text-shadow: none;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    -webkit-text-stroke: 1px var(--icon-color);
   }
 }
 
@@ -38,6 +38,7 @@
   max-block-size: 38px;
   max-inline-size: 130px;
   transition-duration: 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
 .button__text {
@@ -61,7 +62,7 @@
   margin-block-start: 100px;
   border: var(--border);
   background-color: #fff;
-  padding-block: 130px;
+  padding-block: clamp(7.5625rem, 7.3644rem + 0.8451vw, 8.125rem);
 }
 
 .header__title,
@@ -149,6 +150,7 @@
   mix-blend-mode: hard-light;
   font-family: var(--accent-font), fantasy;
   text-shadow: var(--text-shadow);
+  opacity: 50%;
 }
 
 .card__text {
@@ -178,6 +180,9 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  margin-inline-end: 5px;
+  transition: border 0.3s ease;
 }
 
 /*Стили Дискеты*/
@@ -202,7 +207,7 @@
 }
 
 .dialog {
-  padding: 20px 29px;
+  padding: 30px;
   font-family: var(--accent-font), fantasy;
   max-inline-size: 357px;
 }
@@ -226,6 +231,10 @@
   min-inline-size: 293px;
 }
 
+.dialog .dialog__button {
+  padding: 12.5px;
+}
+
 .dialog__button-text {
   text-transform: uppercase;
 }
@@ -235,6 +244,8 @@
   font-size: 14px;
   line-height: 150%;
   max-inline-size: 234px;
+  text-transform: uppercase;
+  margin-inline-start: 10px;
 }
 
 .main__button {
@@ -266,7 +277,7 @@
   }
 
   .dialog .icon-floppy {
-    margin-inline-end: 12px;
+    margin-inline: 10px;
   }
 
   .icon-floppy {
@@ -282,7 +293,6 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 var(--color-dark);
-  transition: box-shadow ease;
 }
 
 .button::after {
@@ -307,7 +317,6 @@
 }
 
 .card__icon-button:focus-visible {
-  transition: border 0.3s ease;
   border: var(--border);
 }
 
@@ -316,7 +325,6 @@
 }
 
 .sparks {
-  transition-duration: 0.3s;
   opacity: 0;
 }
 
@@ -332,7 +340,7 @@
 
 .card__icon-button:hover .core,
 .card__icon-button:hover .main-body {
-  transition: 0.3s;
+  transition: fill 0.3s;
   fill: var(--icon-contour-color);
 }
 
@@ -342,11 +350,8 @@
 
 .card__icon-button:active .core,
 .card__icon-button:active .main-body {
+  transition: fill 0.3s;
   fill: var(--animation-fill-color);
-}
-
-.card__icon-button:active .main-body {
-  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .core {

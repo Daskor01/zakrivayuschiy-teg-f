@@ -8,8 +8,8 @@
   --border: 2px solid #000;
   --color-dark: #000;
   --text-shadow:
-   1px 1px 1px rgba(255, 255, 255, 0.5),
-   -1px -1px 1px rgba(255, 255, 255, 0.5);
+   1px 1px 1px rgba(255, 255, 255),
+   -1px -1px 1px rgba(255, 255, 255);
   --icon-floppy-size: 21px;
   --icon-color: #fff;
   --icon-contour-color: #000;
@@ -25,5 +25,9 @@
 @media (width <= 376px) {
   .icon-floppy {
   --icon-floppy-size: 28px;
+}
+
+.dialog__icon-floppy {
+  --icon-floppy-size: 39px;
 }
 }
