@@ -175,7 +175,6 @@
   border: 2px solid transparent;
   background-color: transparent;
   cursor: pointer;
-  transition: border 0.3s ease;
   max-block-size: 38px;
   display: inline-flex;
   justify-content: center;
@@ -209,7 +208,7 @@
 .dialog {
   padding: 30px;
   font-family: var(--accent-font), fantasy;
-  max-inline-size: 357px;
+  max-inline-size: 358px;
 }
 
 .dialog::backdrop {
